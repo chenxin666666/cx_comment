@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cx-comment-service" />
+        <module name="cx-comment-controller" />
+        <module name="cx-comment-api" />
+        <module name="cx-comment-orm" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
