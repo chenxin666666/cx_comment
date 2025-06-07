@@ -5,10 +5,24 @@
     <file url="file://$PROJECT_DIR$/cx-comment-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cx-comment-controller/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cx-comment-controller/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-comment-main/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-comment-main/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cx-comment-orm/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cx-comment-orm/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cx-comment-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cx-comment-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-comment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-comment/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-controller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-controller/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-main/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-main/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-orm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-orm/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx_comment-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

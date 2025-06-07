@@ -7,6 +7,16 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/cx-comment-api/pom.xml" />
+        <option value="$PROJECT_DIR$/cx-comment-controller/pom.xml" />
+        <option value="$PROJECT_DIR$/cx-comment-main/pom.xml" />
+        <option value="$PROJECT_DIR$/cx-comment-orm/pom.xml" />
+        <option value="$PROJECT_DIR$/cx-comment-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cx-comment/pom.xml" />
+      </set>
+    </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">

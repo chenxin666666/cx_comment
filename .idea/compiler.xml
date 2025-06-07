@@ -6,11 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cx-comment-service" />
-        <module name="cx-comment-controller" />
-        <module name="cx-comment-api" />
-        <module name="cx-comment-orm" />
+        <module name="cx_comment-api" />
+        <module name="cx_comment-controller" />
+        <module name="cx_comment-main" />
+        <module name="cx_comment-service" />
+        <module name="cx_comment-orm" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cx-comment-api" target="17" />
+      <module name="cx-comment-controller" target="17" />
+      <module name="cx-comment-main" target="17" />
+      <module name="cx-comment-orm" target="17" />
+      <module name="cx-comment-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
