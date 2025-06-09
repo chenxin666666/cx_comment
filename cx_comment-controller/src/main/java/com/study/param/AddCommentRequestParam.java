@@ -1,0 +1,40 @@
+package com.study.param;
+
+
+import lombok.Data;
+
+/**
+ * 增加评论参数
+ */
+@Data
+public class AddCommentRequestParam {
+
+    /**
+     * 用户id
+     */
+    private String userId;
+
+    /**
+     * 评论
+     */
+    private String comment;
+
+    /**
+     * 模块
+     * 0:社区模块
+     * 1:游戏模块
+     * 2:短视频模块
+     */
+    private Integer module;
+
+    /**
+     * 资源id
+     */
+    private String resourceId;
+
+    /**
+     * 评论分数
+     */
+    private Integer score;
+
+}
