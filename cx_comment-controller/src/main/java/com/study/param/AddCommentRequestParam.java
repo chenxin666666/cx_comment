@@ -15,9 +15,9 @@ public class AddCommentRequestParam {
     private String userId;
 
     /**
-     * 评论
+     * 评论内容
      */
-    private String comment;
+    private String content;
 
     /**
      * 模块
