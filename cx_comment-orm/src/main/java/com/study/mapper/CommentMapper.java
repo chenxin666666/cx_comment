@@ -12,4 +12,14 @@ public interface CommentMapper {
      * @return int
      */
     int addComment(CommentEntity entity);
+
+
+    /**
+     * 删除评论by主键id
+     * @param id 主键id
+     * @return int
+     */
+    int deleteCommentById(Long id);
+
+
 }

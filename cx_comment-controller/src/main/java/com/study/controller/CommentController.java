@@ -51,7 +51,16 @@ public class CommentController {
      */
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     public BaseResult<Boolean> deleteComment(@RequestBody DelCommentRequestParam param){
-        return null;
+        CommentInfoDTO dto = new CommentInfoDTO();
+        dto.setId(Long.valueOf(param.getCommentId()));
+        dto.setUserId(Long.valueOf(param.getUserId()));
+        dto.setModule(param.getModule());
+        dto.setResourceId(Long.valueOf(param.getResourceId()));
+        dto.setUpdateTime(new Date());
+
+        int count = commentService.deleteComment(dto);
+
+        return new BaseResult<>(200,true,"删除成功",count > 0);
     }
 
 

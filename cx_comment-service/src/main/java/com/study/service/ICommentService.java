@@ -9,4 +9,13 @@ public interface ICommentService {
      * @return int
      */
     int addComment(CommentInfoDTO dto);
+
+
+    /**
+     * 删除评论
+     * @return int
+     */
+    int deleteComment(CommentInfoDTO dto);
+
+
 }
