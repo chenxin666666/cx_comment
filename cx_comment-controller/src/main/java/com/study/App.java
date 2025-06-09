@@ -1,4 +1,4 @@
-package com.study-comment;
+package com.study;
 
 /**
  * Hello world!
