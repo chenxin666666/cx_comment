@@ -13,6 +13,9 @@ spring:
 #mybaits信息配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+  # 实体类字段和数据库字段不一致
+#  configuration:
+#    map-underscore-to-camel-case: true
 
 #配置日志打印级别
 logging:

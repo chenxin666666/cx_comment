@@ -1,9 +1,6 @@
 package com.study.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -11,7 +8,7 @@ import java.util.Date;
 /**
  * 评论的DTO
  */
-public class CommentInfoDTO {
+public class CommentDetailInfoDTO {
     /**
      * 主键id
      */
@@ -48,11 +45,6 @@ public class CommentInfoDTO {
      */
     private Integer score;
 
-    /**
-     * 排序方式
-     */
-    private Integer order;
-
 
     /**
      * 点赞数量
@@ -73,9 +65,5 @@ public class CommentInfoDTO {
      * 更新时间
      */
     private Date updateTime;
-
-    private  Integer pageNum;
-
-    private Integer pageSize;
 
 }

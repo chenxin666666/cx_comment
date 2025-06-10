@@ -41,7 +41,7 @@ public class CommentInfoEntity {
     /**
      * 评论时间
      */
-    private String commentTime;
+    private String contentTime;
 
     /**
      * 点赞数
@@ -74,6 +74,6 @@ public class CommentInfoEntity {
     /**
      * 子回复列表
      */
-    private List<ReplyInfoEntity> list;
+    private List<ReplyInfoEntity> replyList;
 
 }

@@ -1,6 +1,7 @@
 package com.study.service;
 
 import com.study.dto.CommentInfoDTO;
+import com.study.dto.CommentResultInfoDTO;
 
 public interface ICommentService {
 
@@ -17,5 +18,10 @@ public interface ICommentService {
      */
     int deleteComment(CommentInfoDTO dto);
 
-
+    /**
+     *  查询评论
+     * @param dto CommentInfoDT
+     * @return CommentResultInfoDTO
+     */
+    CommentResultInfoDTO queryCommentByParam(CommentInfoDTO dto);
 }
