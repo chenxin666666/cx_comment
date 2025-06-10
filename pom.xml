@@ -27,6 +27,7 @@
         <mybiats.version>2.2.1</mybiats.version>
         <lombok.version>1.18.18</lombok.version>
         <mysql.version>8.0.25</mysql.version>
+        <fasetjson.version>1.2.76</fasetjson.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -52,6 +53,11 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fasetjson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
