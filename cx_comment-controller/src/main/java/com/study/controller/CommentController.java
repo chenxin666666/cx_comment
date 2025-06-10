@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.study.dto.CommentDetailInfoDTO;
 import com.study.dto.CommentInfoDTO;
 import com.study.dto.CommentResultInfoDTO;
+import com.study.enums.CommentDeleteEnums;
 import com.study.param.*;
 import com.study.service.ICommentService;
 import com.study.utils.BaseResultUtils;
@@ -87,17 +88,27 @@ public class CommentController {
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     public BaseResult<Boolean> deleteComment(@RequestBody DelCommentRequestParam param){
         try {
-            log.info("增加评论-controller层-deleteComment-入参:{}", JSON.toJSONString(param));
+            log.info("删除评论-controller层-deleteComment-入参:{}", JSON.toJSONString(param));
+            //入参校验
+            checkDeleteCommentParam(param);
             CommentInfoDTO dto = buildCommentInfoDTO(param);
             int count = commentService.deleteComment(dto);
-
-            log.info("增加评论-controller层-deleteComment-出参:{}",count);
-
+            log.info("删除评论-controller层-deleteComment-出参:{}",count);
+            if(count <= 0){
+                return BaseResultUtils.generateFail("删除评论失败");
+            }
             return BaseResultUtils.generateSuccess(count > 0);
         }catch (Exception e){
-            log.error("增加评论-controller层-deleteComment-异常",e);
-            return BaseResultUtils.generateFail("删除评论失败");
+            log.error("删除评论-controller层-deleteComment-异常",e);
+            return BaseResultUtils.generateFail("删除评论异常");
         }
+    }
+
+    private void checkDeleteCommentParam(DelCommentRequestParam param) {
+        Assert.isTrue(param != null,"入参不能为空");
+        Assert.isTrue(StringUtils.isNotBlank(param.getUserId()),"用户id不能为空");
+        Assert.isTrue(param.getModule() != null,"模块不能为空");
+        Assert.isTrue(StringUtils.isNotBlank(param.getResourceId()),"资源id不能为空");
     }
 
     private static CommentInfoDTO buildCommentInfoDTO(DelCommentRequestParam param) {
@@ -107,6 +118,8 @@ public class CommentController {
         dto.setModule(param.getModule());
         dto.setResourceId(Long.valueOf(param.getResourceId()));
         dto.setUpdateTime(new Date());
+        //逻辑删除
+        dto.setIsDelete(CommentDeleteEnums.DELETED.getCode());
         return dto;
     }
 
@@ -189,6 +202,7 @@ public class CommentController {
         commentInfoDTO.setOrder(param.getOrder());
         commentInfoDTO.setPageNum(param.getPageNum());
         commentInfoDTO.setPageSize(param.getPageSize());
+        commentInfoDTO.setIsDelete(CommentDeleteEnums.NORMAL.getCode());
 
         return commentInfoDTO;
     }
