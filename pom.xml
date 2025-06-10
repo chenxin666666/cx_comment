@@ -28,6 +28,7 @@
         <lombok.version>1.18.18</lombok.version>
         <mysql.version>8.0.25</mysql.version>
         <fasetjson.version>1.2.76</fasetjson.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -58,6 +59,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fasetjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
