@@ -13,6 +13,8 @@ spring:
 #mybaits信息配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   # 实体类字段和数据库字段不一致
 #  configuration:
 #    map-underscore-to-camel-case: true
