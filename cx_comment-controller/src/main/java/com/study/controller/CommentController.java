@@ -108,14 +108,14 @@ public class CommentController {
     public BaseResult<CommentResultParam> queryComment(QueryCommentRequestParam param){
 
         try{
-            log.info("查询评论-queryComment-入参:{}", JSON.toJSONString(param));
+            log.info("查询评-controller层-论queryComment-入参:{}", JSON.toJSONString(param));
             CommentInfoDTO commentInfoDTO = buildCommentInfoDto(param);
             CommentResultInfoDTO resultInfoDTO = commentService.queryCommentByParam(commentInfoDTO);
             CommentResultParam resultParam = buildCommentResultParam(resultInfoDTO);
-            log.info("查询评论-queryComment-出参:{}", JSON.toJSONString(resultParam));
+            log.info("查询评论-controller层-queryComment-出参:{}", JSON.toJSONString(resultParam));
             return BaseResultUtils.generateSuccess(resultParam);
         }catch (Exception e){
-            log.error("增加评论-controller层-queryComment-异常",e);
+            log.error("查询评论-controller层-queryComment-异常",e);
             return BaseResultUtils.generateFail("查询评论失败");
         }
     }

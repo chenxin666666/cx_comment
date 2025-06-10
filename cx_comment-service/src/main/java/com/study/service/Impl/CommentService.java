@@ -1,5 +1,6 @@
 package com.study.service.Impl;
 
+import com.alibaba.fastjson.JSON;
 import com.study.dto.CommentDetailInfoDTO;
 import com.study.dto.CommentInfoDTO;
 import com.study.dto.CommentResultInfoDTO;
@@ -33,10 +34,17 @@ public class CommentService implements ICommentService {
      */
     @Override
     public int addComment(CommentInfoDTO dto) {
-        CommentEntity commentEntity = new CommentEntity();
-        BeanUtils.copyProperties(dto,commentEntity);
-        int count = commentMapper.addComment(commentEntity);
-        return count;
+        try {
+            log.info("增加评论-Service-addComment-入参:{}", JSON.toJSONString(dto));
+            CommentEntity commentEntity = new CommentEntity();
+            BeanUtils.copyProperties(dto, commentEntity);
+            int count = commentMapper.addComment(commentEntity);
+            log.info("增加评论-Service-addComment-出参:{}", count);
+            return count;
+        }catch (Exception e){
+            log.info("增加评论-Service-addComment-异常:{}", e);
+            return -1;
+        }
     }
 
 
@@ -46,10 +54,16 @@ public class CommentService implements ICommentService {
      */
     @Override
     public int deleteComment(CommentInfoDTO dto) {
-        log.info("删除评论-入参：{}",dto);
-        //TODO 缺少参数校验
-        int count = commentMapper.deleteCommentById(dto.getId());
-        return count;
+        try {
+            log.info("删除评论-Service-deleteComment-入参:{}", JSON.toJSONString(dto));
+            //TODO 缺少参数校验
+            int count = commentMapper.deleteCommentById(dto.getId());
+            log.info("删除评论-Service-deleteComment-出参:{}", count);
+            return count;
+        }catch (Exception e){
+            log.info("删除评论-Service-deleteComment-异常:{}", e);
+            return -1;
+        }
     }
 
     /**
@@ -58,30 +72,37 @@ public class CommentService implements ICommentService {
      */
     @Override
     public CommentResultInfoDTO queryCommentByParam(CommentInfoDTO dto) {
-        log.info("查询评论-queryCommentByParam-入参:{}",dto);
-        CommentResultInfoDTO resultInfoDTO = new CommentResultInfoDTO();
 
-        //检查参数
-        checkParam(dto);
+        try {
+            log.info("查询评论-Service-queryCommentByPara-入参:{}", JSON.toJSONString(dto));
+            CommentResultInfoDTO resultInfoDTO = new CommentResultInfoDTO();
 
-        //构建查询条件
-        CommentParam queryParam = buildQueryCommentParam(dto);
+            //1.检查参数
+            checkParam(dto);
 
-        //查询评论总数
-        int total = commentMapper.countCommentByParam(queryParam);
-        resultInfoDTO.setTotal(Long.valueOf(total+""));
-        if(total <= 0){
+            //2.构建查询条件
+            CommentParam queryParam = buildQueryCommentParam(dto);
+
+            //3.查询评论总数
+            log.info("查询评论-Service-数据库-入参:{}", JSON.toJSONString(queryParam));
+            int total = commentMapper.countCommentByParam(queryParam);
+            resultInfoDTO.setTotal(Long.valueOf(total + ""));
+            if (total <= 0) {
+                return resultInfoDTO;
+            }
+
+            //4.查询评论列表
+            List<CommentEntity> commentEntities = commentMapper.queryCommentByParam(queryParam);
+            log.info("查询评论-Service-数据库-出参:{}", commentEntities);
+            //5.组装结果集
+            List<CommentDetailInfoDTO> list = buildResultList(commentEntities);
+            resultInfoDTO.setList(list);
+            log.info("查询评论-Service-queryCommentByPara-出参:{}", resultInfoDTO);
             return resultInfoDTO;
+        }catch (Exception e){
+            log.info("查询评论-Service-queryCommentByPara-异常:{}", e);
+            return null;
         }
-
-        //查询评论列表
-        List<CommentEntity> commentEntities = commentMapper.queryCommentByParam(queryParam);
-
-        //组装结果集
-        List<CommentDetailInfoDTO> list  = buildResultList(commentEntities);
-        resultInfoDTO.setList(list);
-        log.info("查询评论-queryCommentByParam-出参:{}",resultInfoDTO);
-        return resultInfoDTO;
     }
 
     /**
